@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8706318345185605179}
   - component: {fileID: 419323897505466729}
-  - component: {fileID: 1469785206737515906}
+  - component: {fileID: 8496186320446382938}
   m_Layer: 6
   m_Name: Wall Short Varient 4
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &419323897505466729
 SpriteRenderer:
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1469785206737515906
-BoxCollider2D:
+--- !u!60 &8496186320446382938
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,6 +127,28 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.86, y: 0.3}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.84, y: 0.01}
+      - {x: 0.48999998, y: 0.04}
+      - {x: 0.28, y: 0.089999996}
+      - {x: 0.19999999, y: 0.11}
+      - {x: 0.03, y: 0.14}
+      - {x: -0.03, y: 0.14999999}
+      - {x: -0.55, y: 0.14999999}
+      - {x: -0.69, y: 0.13}
+      - {x: -0.90999997, y: 0.06}
+      - {x: -0.93, y: 0.03}
+      - {x: -0.93, y: -0.06}
+      - {x: -0.90999997, y: -0.099999994}
+      - {x: -0.77, y: -0.08}
+      - {x: -0.59, y: -0.03}
+      - {x: -0.42, y: -0.01}
+      - {x: -0.17999999, y: -0.01}
+      - {x: 0.13, y: -0.049999997}
+      - {x: 0.32999998, y: -0.11}
+      - {x: 0.45999998, y: -0.14999999}
+      - {x: 0.82, y: -0.14999999}
+      - {x: 0.93, y: -0.14}
+      - {x: 0.93, y: -0.049999997}
+  m_UseDelaunayMesh: 0
