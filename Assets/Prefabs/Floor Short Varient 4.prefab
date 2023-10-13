@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8706318345185605179}
   - component: {fileID: 419323897505466729}
   - component: {fileID: 3057349201660287876}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Floor Short Varient 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &419323897505466729
 SpriteRenderer:
@@ -94,7 +94,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 6160722114954565871}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 35e41cf2d3fcb1c4383e424effcdd011, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

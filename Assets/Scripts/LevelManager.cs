@@ -6,13 +6,44 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
+    private static bool created = false;
+    public static LevelManager self;
+    public bool enabledLevel1 = true;
+    public bool enabledLevel2 = false;
+    public bool enabledLevel3 = false;
+    public bool enabledLevel4 = false;
+    public bool enabledLevel5 = false;
+
     public GameObject activeCheckpoint;
-    private PlayerController player;
+    [SerializeField]
+    private Transform player;
+    [Range(-10, 10)]
+    public float offset = 10;
+
+    private void Awake()
+    {
+        if (!created)
+        {
+            DontDestroyOnLoad(gameObject);
+            created = true;
+            self = this;
+            self.player = GameObject.Find("Player").transform;
+            Debug.Log("New LevelManager created.");
+        }
+        else
+        {
+            Debug.Log("LevelManager already exists, destroying...");
+            self.activeCheckpoint = activeCheckpoint;
+            self.player = GameObject.Find("Player").transform;
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerController>();
+        //player = GameObject.Find("Player").transform;
+        
     }
 
     // Update is called once per frame
@@ -23,6 +54,8 @@ public class LevelManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        player.transform.position = activeCheckpoint.transform.position;
+        
+        Vector3 targetPos = activeCheckpoint.transform.position;
+        player.position = new Vector3(targetPos.x, targetPos.y + offset, targetPos.z);
     }
 }
