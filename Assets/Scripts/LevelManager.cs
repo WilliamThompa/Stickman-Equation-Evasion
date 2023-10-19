@@ -27,14 +27,28 @@ public class LevelManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             created = true;
             self = this;
-            self.player = GameObject.Find("Player").transform;
+            try
+            {
+                self.player = GameObject.Find("Player Variant").transform;
+            }
+            catch
+            {
+                Debug.LogWarning("fix this lol");
+            }
             Debug.Log("New LevelManager created.");
         }
         else
         {
             Debug.Log("LevelManager already exists, destroying...");
             self.activeCheckpoint = activeCheckpoint;
-            self.player = GameObject.Find("Player").transform;
+            try
+            {
+                self.player = GameObject.Find("Player Variant").transform;
+            }
+            catch
+            {
+                Debug.LogWarning("fix this lol");
+            }
             Destroy(gameObject);
         }
     }

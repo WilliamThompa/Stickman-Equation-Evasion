@@ -11,6 +11,8 @@ public class Doors : MonoBehaviour
     public string levelToLoad;
     public Sprite lockSprite;
     public SpriteRenderer doorNumberRender;
+    [SerializeField]
+    private LevelManager levelManager;
 
 
     // Start is called before the first frame update
@@ -19,7 +21,8 @@ public class Doors : MonoBehaviour
         inExitZone = false;
         if (isLevelSelectDoor)
         {
-            LevelManager levelManager = FindObjectOfType<LevelManager>();
+            Debug.Log("DOOR CHECK" + doorNumber.ToString());
+            levelManager = LevelManager.self;
             if(doorNumber == 2 && !levelManager.enabledLevel2)
             {
                 //gameObject.SetActive(false);
@@ -79,7 +82,7 @@ public class Doors : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Player")
+        if (collision.name == "Player Variant")
         {
             inExitZone = true;
         }
@@ -87,7 +90,7 @@ public class Doors : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.name == "Player")
+        if (other.name == "Player Variant")
         {
             inExitZone = false;
         }

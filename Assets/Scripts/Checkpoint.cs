@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.name == "Player")
+        if(collision.name == "Player Variant")
         {
             levelManager.activeCheckpoint = gameObject;
         }

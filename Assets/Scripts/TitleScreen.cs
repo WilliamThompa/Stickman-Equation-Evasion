@@ -12,11 +12,6 @@ public class TitleScreen : MonoBehaviour
     
     public void NewGame()
     {
-        SceneManager.LoadSceneAsync(firstLevel);
-    }
-
-    public void LevelSelect()
-    {
         SceneManager.LoadSceneAsync(levelSelect);
     }
 
