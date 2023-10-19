@@ -87,7 +87,6 @@ public class Movement : MonoBehaviour
         anim.SetBool("Jumping", isJumping);
         anim.SetBool("Punching", isPunching);
 
-        print(anim_running);
         Flip();
     }
 
