@@ -20,10 +20,19 @@ public class Movement : MonoBehaviour
     private float dashingTime = 0.3f;
     private float dashingCooldown = 1f;
 
+    private Animator anim;
+    private bool anim_running;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        anim_running = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,6 +49,12 @@ public class Movement : MonoBehaviour
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
+        
+        // Running Animations
+        if (horizontal > 0 || horizontal < 0)
+            anim_running = true;
+        else
+            anim_running = false;
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -61,6 +76,10 @@ public class Movement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
+        anim.SetBool("Running", anim_running);
+        anim.SetBool("Jumping", isJumping);
+
+        print(anim_running);
         Flip();
     }
 
