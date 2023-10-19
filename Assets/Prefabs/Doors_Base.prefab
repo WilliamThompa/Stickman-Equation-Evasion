@@ -101,7 +101,7 @@ MonoBehaviour:
   isLevelSelectDoor: 0
   doorNumber: 0
   levelToLoad: 
-  lockSprite: {fileID: 21300000, guid: e13a18b320712194db15b31e74ae8c08, type: 3}
+  lockSprite: {fileID: 21300000, guid: 7936ba25830685a488c3c3de30144f18, type: 3}
   doorNumberRender: {fileID: 0}
 --- !u!61 &3022433305413180810
 BoxCollider2D:

@@ -26,6 +26,24 @@ public class Doors : MonoBehaviour
                 GetComponent<BoxCollider2D>().enabled = false;
                 doorNumberRender.sprite = lockSprite;
             }
+            if (doorNumber == 3 && !levelManager.enabledLevel3)
+            {
+                //gameObject.SetActive(false);
+                GetComponent<BoxCollider2D>().enabled = false;
+                doorNumberRender.sprite = lockSprite;
+            }
+            if (doorNumber == 4 && !levelManager.enabledLevel4)
+            {
+                //gameObject.SetActive(false);
+                GetComponent<BoxCollider2D>().enabled = false;
+                doorNumberRender.sprite = lockSprite;
+            }
+            if (doorNumber == 5 && !levelManager.enabledLevel5)
+            {
+                //gameObject.SetActive(false);
+                GetComponent<BoxCollider2D>().enabled = false;
+                doorNumberRender.sprite = lockSprite;
+            }
         }
     }
 
@@ -41,6 +59,19 @@ public class Doors : MonoBehaviour
                 {
                     levelManger.enabledLevel2 = true;
                 }
+                if (doorNumber == 2)
+                {
+                    levelManger.enabledLevel3 = true;
+                }
+                if (doorNumber == 3)
+                {
+                    levelManger.enabledLevel4 = true;
+                }
+                if (doorNumber == 4)
+                {
+                    levelManger.enabledLevel5 = true;
+                }
+
             }
             SceneManager.LoadSceneAsync(levelToLoad);
         }

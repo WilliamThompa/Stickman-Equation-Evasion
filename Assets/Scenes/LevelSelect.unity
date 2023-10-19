@@ -581,6 +581,10 @@ PrefabInstance:
       value: ThridLevel
       objectReference: {fileID: 0}
     - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
+      propertyPath: doorNumberRender
+      value: 
+      objectReference: {fileID: 979190643}
+    - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
       propertyPath: isLevelSelectDoor
       value: 1
       objectReference: {fileID: 0}
@@ -778,10 +782,6 @@ PrefabInstance:
       propertyPath: doorNumber
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
-      propertyPath: lockSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7936ba25830685a488c3c3de30144f18, type: 3}
     - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
       propertyPath: levelToLoad
       value: SecondLevel
@@ -1334,6 +1334,10 @@ PrefabInstance:
       propertyPath: levelToLoad
       value: FourthLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
+      propertyPath: doorNumberRender
+      value: 
+      objectReference: {fileID: 1304655811}
     - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
       propertyPath: isLevelSelectDoor
       value: 1
@@ -2226,6 +2230,10 @@ PrefabInstance:
       propertyPath: levelToLoad
       value: FifthLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
+      propertyPath: doorNumberRender
+      value: 
+      objectReference: {fileID: 1702774652}
     - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
       propertyPath: isLevelSelectDoor
       value: 1
