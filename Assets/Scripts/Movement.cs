@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
 
     private Animator anim;
     private bool anim_running;
+    private bool isPunching;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -76,8 +77,15 @@ public class Movement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            isPunching = true;
+        }
+        else isPunching = false;
+
         anim.SetBool("Running", anim_running);
         anim.SetBool("Jumping", isJumping);
+        anim.SetBool("Punching", isPunching);
 
         print(anim_running);
         Flip();
