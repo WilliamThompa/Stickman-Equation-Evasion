@@ -77,15 +77,8 @@ public class Movement : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            isPunching = true;
-        }
-        else isPunching = false;
-
         anim.SetBool("Running", anim_running);
         anim.SetBool("Jumping", isJumping);
-        anim.SetBool("Punching", isPunching);
 
         Flip();
     }
