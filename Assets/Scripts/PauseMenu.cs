@@ -14,16 +14,22 @@ public class PauseMenu : MonoBehaviour
 
     public void LevelSelect()
     {
+        Time.timeScale = 1;
+        isPaused = false;
         SceneManager.LoadSceneAsync(levelSelect);
     }
 
     public void Settings()
     {
+        Time.timeScale = 1;
+        isPaused = false;
         SceneManager.LoadSceneAsync(settings);
     }
 
     public void QuitToMenu()
     {
+        Time.timeScale = 1;
+        isPaused = false;
         SceneManager.LoadSceneAsync(quitToMenu);
     }
 
@@ -34,20 +40,21 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (isPaused)
-        {
-            pauseCanvas.SetActive(true);
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            pauseCanvas.SetActive(false);
-            Time.timeScale = 1f;
-        }
-
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
+            if (isPaused)
+            {
+                pauseCanvas.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                pauseCanvas.SetActive(false);
+                Time.timeScale = 1f;
+            }
+
         }
     }
 }
