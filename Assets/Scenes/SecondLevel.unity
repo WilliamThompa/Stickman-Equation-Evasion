@@ -2237,6 +2237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor Short Varient 4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6160722114954565871, guid: cc840db37ee36084d93212d9871d908c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8706318345185605179, guid: cc840db37ee36084d93212d9871d908c, type: 3}
       propertyPath: m_RootOrder
       value: 64
@@ -2857,11 +2861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8706318345185605179, guid: c298b99e9a0cd7241a65f1ca48c5e26d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.93
+      value: 29.892
       objectReference: {fileID: 0}
     - target: {fileID: 8706318345185605179, guid: c298b99e9a0cd7241a65f1ca48c5e26d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.72
+      value: -3.678
       objectReference: {fileID: 0}
     - target: {fileID: 8706318345185605179, guid: c298b99e9a0cd7241a65f1ca48c5e26d, type: 3}
       propertyPath: m_LocalPosition.z

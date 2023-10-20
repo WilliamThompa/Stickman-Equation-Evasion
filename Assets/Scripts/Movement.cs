@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private bool anim_running;
     private bool isPunching;
+    private bool isDoubleJumping;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -63,6 +64,12 @@ public class Movement : MonoBehaviour
             {
                 isJumping = true;
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                print(remainingJumps);
+                if (isJumping && remainingJumps == 1)
+                {
+                    print("Double Jumping");
+                    anim.SetTrigger("DoubleJump");
+                }
                 remainingJumps--;
             }
         }
@@ -75,10 +82,12 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
+            anim.SetTrigger("Dashing");
         }
 
         anim.SetBool("Running", anim_running);
         anim.SetBool("Jumping", isJumping);
+        anim.SetBool("IsGrounded", IsGrounded());
 
         Flip();
     }
