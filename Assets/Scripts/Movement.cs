@@ -88,6 +88,7 @@ public class Movement : MonoBehaviour
         anim.SetBool("Running", anim_running);
         anim.SetBool("Jumping", isJumping);
         anim.SetBool("IsGrounded", IsGrounded());
+        anim.SetFloat("Fall", rb.velocity.y);
 
         Flip();
     }
