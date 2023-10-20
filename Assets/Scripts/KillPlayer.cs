@@ -24,6 +24,7 @@ public class KillPlayer : MonoBehaviour
         if(other.name == "Player Variant")
         {
             levelManager.RespawnPlayer();
+            levelManager.TakeLife();
         }
     }
 }

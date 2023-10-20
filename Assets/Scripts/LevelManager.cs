@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Services.Mediation;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,6 +16,34 @@ public class LevelManager : MonoBehaviour
     public bool enabledLevel3 = false;
     public bool enabledLevel4 = false;
     public bool enabledLevel5 = false;
+
+    public int defaultLives = 3;
+    [SerializeField]
+    private int livesCounter;
+    public string levelSelect;
+
+    public int LivesCounter
+    {
+        get
+        {
+            return livesCounter;
+        }
+        set
+        {
+            int tmpVal = value;
+            if(tmpVal < 0)
+            {
+                //prevents from being less than 0
+                tmpVal = 0;
+            }
+            livesCounter = tmpVal;
+            //updates UI
+            livesText.text = "x " + livesCounter;
+        }
+    }
+
+    public TMP_Text livesText;
+    public GameObject gameOverScreen;
 
     public GameObject activeCheckpoint;
     [SerializeField]
@@ -36,11 +67,13 @@ public class LevelManager : MonoBehaviour
                 Debug.LogWarning("fix this lol");
             }
             Debug.Log("New LevelManager created.");
+            
         }
         else
         {
             Debug.Log("LevelManager already exists, destroying...");
             self.activeCheckpoint = activeCheckpoint;
+            self.livesText = livesText;
             try
             {
                 self.player = GameObject.Find("Player Variant").transform;
@@ -49,21 +82,32 @@ public class LevelManager : MonoBehaviour
             {
                 Debug.LogWarning("fix this lol");
             }
+            livesText.text = "x " + self.livesCounter;
             Destroy(gameObject);
         }
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //player = GameObject.Find("Player").transform;
-        
+        LivesCounter = defaultLives;
+        gameOverScreen = GameObject.Find("GameOver");
+        gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+        if (gameOverScreen == null)
+        {
+            gameOverScreen = GameObject.Find("GameOver");
+        }
+        if (livesCounter > 0)
+        {
+            gameOverScreen.SetActive(false);
+        }
     }
 
     public void RespawnPlayer()
@@ -72,4 +116,23 @@ public class LevelManager : MonoBehaviour
         Vector3 targetPos = activeCheckpoint.transform.position;
         player.position = new Vector3(targetPos.x, targetPos.y + offset, targetPos.z);
     }
+
+    public void TakeLife()
+    {
+
+        LivesCounter--;
+        if(LivesCounter <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+            Debug.LogWarning(Time.timeScale);
+        }
+    }
+
+    public void ResetLife()
+    {
+        gameOverScreen.SetActive(false);
+        livesCounter = 3;
+        Time.timeScale = 1;
+     }
 }
