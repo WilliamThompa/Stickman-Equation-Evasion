@@ -38,7 +38,7 @@ public class LevelManager : MonoBehaviour
             }
             livesCounter = tmpVal;
             //updates UI
-            livesText.text = "x " + livesCounter;
+            UpdateLivesCounter();
         }
     }
 
@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
             {
                 Debug.LogWarning("fix this lol");
             }
-            livesText.text = "x " + self.livesCounter;
+            livesText.text = "x " + self.livesCounter.ToString();
             Destroy(gameObject);
         }
         
@@ -135,4 +135,17 @@ public class LevelManager : MonoBehaviour
         livesCounter = 3;
         Time.timeScale = 1;
      }
+
+    public void AddLife()
+    {
+        //print($"First part: {livesCounter}");
+        livesCounter = livesCounter + 1;
+        //print($"Second part: {livesCounter}");
+        UpdateLivesCounter();
+    }
+
+    public void UpdateLivesCounter()
+    {
+        livesText.text = "x " + livesCounter.ToString();
+    }
 }

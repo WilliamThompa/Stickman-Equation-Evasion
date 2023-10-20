@@ -64,10 +64,10 @@ public class Movement : MonoBehaviour
             {
                 isJumping = true;
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-                print(remainingJumps);
+                //print(remainingJumps);
                 if (isJumping && remainingJumps == 1)
                 {
-                    print("Double Jumping");
+                    //print("Double Jumping");
                     anim.SetTrigger("DoubleJump");
                 }
                 remainingJumps--;
