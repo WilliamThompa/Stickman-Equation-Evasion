@@ -6,6 +6,8 @@ public class PlayerCombat : MonoBehaviour
 {
 
     public Animator anim;
+    public PlayerAnimationController controller;
+    public bool attacking;
 
     public Transform attackPoint;
     public LayerMask enemyLayers;
@@ -16,10 +18,16 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    private void Start()
+    {
+        attacking = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= nextAttackTime)
+        attacking = false;
+        if (Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -27,7 +35,6 @@ public class PlayerCombat : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
-        
     }
 
     void Attack()

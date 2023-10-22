@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,6 +23,9 @@ public class LevelManager : MonoBehaviour
     private int livesCounter;
     public string levelSelect;
 
+    public Animator anim;
+    public GameObject activeCheckpoint;
+
     public int LivesCounter
     {
         get
@@ -45,7 +49,6 @@ public class LevelManager : MonoBehaviour
     public TMP_Text livesText;
     public GameObject gameOverScreen;
 
-    public GameObject activeCheckpoint;
     [SerializeField]
     private Transform player;
     [Range(-10, 10)]
@@ -58,6 +61,10 @@ public class LevelManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             created = true;
             self = this;
+            if (self == null)
+            {
+                self = new LevelManager();
+            }
             try
             {
                 self.player = GameObject.Find("Player Variant").transform;
@@ -67,13 +74,19 @@ public class LevelManager : MonoBehaviour
                 Debug.LogWarning("fix this lol");
             }
             Debug.Log("New LevelManager created.");
-            
+
+            // Respawn transition
+            try
+            {
+                anim = GameObject.Find("Transition").GetComponent<Animator>();
+            }
+            catch(Exception e) { print(e); }
         }
         else
         {
             Debug.Log("LevelManager already exists, destroying...");
             self.activeCheckpoint = activeCheckpoint;
-            self.livesText = livesText;
+            livesText = GameObject.Find("Life Count").GetComponent<TMP_Text>();
             try
             {
                 self.player = GameObject.Find("Player Variant").transform;
@@ -93,27 +106,26 @@ public class LevelManager : MonoBehaviour
     {
         LivesCounter = defaultLives;
         gameOverScreen = GameObject.Find("GameOver");
-        gameOverScreen.SetActive(false);
+        if (gameOverScreen != null) gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (gameOverScreen == null)
-        {
-            gameOverScreen = GameObject.Find("GameOver");
-        }
-        if (livesCounter > 0)
-        {
-            gameOverScreen.SetActive(false);
-        }
+
+        if (gameOverScreen == null) gameOverScreen = GameObject.Find("GameOver");
+        if (activeCheckpoint == null) activeCheckpoint = GameObject.Find("Spawn");
+        //if (livesCounter > 0 && enabledLevel2)
+        //{
+        //    gameOverScreen.SetActive(false);
+        //}
     }
 
     public void RespawnPlayer()
     {
         
         Vector3 targetPos = activeCheckpoint.transform.position;
+        if (player == null) self.player = GameObject.Find("Player Variant").transform;
         player.position = new Vector3(targetPos.x, targetPos.y + offset, targetPos.z);
     }
 
@@ -123,6 +135,7 @@ public class LevelManager : MonoBehaviour
         LivesCounter--;
         if(LivesCounter <= 0)
         {
+            if (gameOverScreen == null) gameOverScreen = GameObject.Find("GameOver");
             gameOverScreen.SetActive(true);
             Time.timeScale = 0;
             Debug.LogWarning(Time.timeScale);
@@ -146,6 +159,7 @@ public class LevelManager : MonoBehaviour
 
     public void UpdateLivesCounter()
     {
+        if (livesText == null) livesText = GameObject.Find("Life Count").GetComponent<TMP_Text>();
         livesText.text = "x " + livesCounter.ToString();
     }
 }

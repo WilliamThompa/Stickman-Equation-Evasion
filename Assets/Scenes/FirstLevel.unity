@@ -5427,6 +5427,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1800968441}
     - target: {fileID: 8892636509803531615, guid: 3076003d5c8bd174fa6f759999498b0f, type: 3}
+      propertyPath: livesCounter
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892636509803531615, guid: 3076003d5c8bd174fa6f759999498b0f, type: 3}
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1800968440}

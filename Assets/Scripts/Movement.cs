@@ -10,20 +10,25 @@ public class Movement : MonoBehaviour
     private float jumpingPower = 10f;
     private bool isFacingRight = true;
 
-    private bool isJumping;
+    
     private int maxJumps = 2;
     private int remainingJumps;
 
     private bool canDash = true;
-    private bool isDashing;
     private float dashingPower = 34f;
     private float dashingTime = 0.3f;
     private float dashingCooldown = 1f;
 
     private Animator anim;
-    private bool anim_running;
     private bool isPunching;
-    private bool isDoubleJumping;
+    public float velo;
+
+    public bool isDoubleJumping;
+    public bool isDashing;
+    public bool Grounds;
+    public bool anim_running;
+    public bool isJumping;
+    public float falling;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -34,6 +39,7 @@ public class Movement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         anim_running = false;
+        isDashing = false;
     }
 
     // Update is called once per frame
@@ -47,11 +53,18 @@ public class Movement : MonoBehaviour
         if (IsGrounded() && !Input.GetButton("Jump"))
         {
             isJumping = false;
+            isDoubleJumping = false;
             remainingJumps = maxJumps;
         }
 
         horizontal = Input.GetAxisRaw("Horizontal");
         
+        if (!IsGrounded() && rb.velocity.y > velo && rb.velocity.y < 0)
+        {
+            //anim.SetTrigger("Lands");
+            Grounds = true;
+        }
+
         // Running Animations
         if (horizontal > 0 || horizontal < 0)
             anim_running = true;
@@ -68,7 +81,8 @@ public class Movement : MonoBehaviour
                 if (isJumping && remainingJumps == 1)
                 {
                     //print("Double Jumping");
-                    anim.SetTrigger("DoubleJump");
+                    //anim.SetTrigger("DoubleJump");
+                    isDoubleJumping = true;
                 }
                 remainingJumps--;
             }
@@ -82,14 +96,16 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
-            anim.SetTrigger("Dashing");
+            //anim.SetTrigger("Dashing");
         }
 
-        anim.SetBool("Running", anim_running);
-        anim.SetBool("Jumping", isJumping);
-        anim.SetBool("IsGrounded", IsGrounded());
-        anim.SetFloat("Fall", rb.velocity.y);
-
+        //anim.SetBool("Running", anim_running);
+        //anim.SetBool("Jumping", isJumping);
+        //anim.SetBool("IsGrounded", IsGrounded());
+        //anim.SetFloat("Fall", rb.velocity.y);
+        
+        falling = rb.velocity.y;
+        velo = rb.velocity.y;
         Flip();
     }
 
@@ -103,9 +119,13 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        if (Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer))
+        {
+            return true;
+        }
+        return false;
     }
 
     private void Flip()

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Doors : MonoBehaviour
 {
+
     public bool isLevelSelectDoor;
     public int doorNumber;
     private bool inExitZone;
@@ -13,12 +14,13 @@ public class Doors : MonoBehaviour
     public SpriteRenderer doorNumberRender;
     [SerializeField]
     private LevelManager levelManager;
-
+    [SerializeField] Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         inExitZone = false;
+        anim = GameObject.Find("SceneTransition").GetComponentInChildren<Animator>();
         if (isLevelSelectDoor)
         {
             Debug.Log("DOOR CHECK" + doorNumber.ToString());
@@ -76,7 +78,9 @@ public class Doors : MonoBehaviour
                 }
 
             }
-            SceneManager.LoadSceneAsync(levelToLoad);
+            StartCoroutine(LoadLevel());
+            // Transition method
+            //SceneManager.LoadSceneAsync(levelToLoad);
         }
     }
 
@@ -94,5 +98,13 @@ public class Doors : MonoBehaviour
         {
             inExitZone = false;
         }
+    }
+
+    IEnumerator LoadLevel()
+    {
+        anim.SetTrigger("Finish");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync(levelToLoad);
+        anim.SetTrigger("Start");
     }
 }

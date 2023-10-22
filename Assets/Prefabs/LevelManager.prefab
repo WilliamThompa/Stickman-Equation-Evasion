@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8892636509803531615
 MonoBehaviour:
@@ -50,6 +50,9 @@ MonoBehaviour:
   enabledLevel4: 0
   enabledLevel5: 0
   defaultLives: 3
+  livesCounter: 0
+  levelSelect: 
+  anim: {fileID: 0}
   livesText: {fileID: 0}
   gameOverScreen: {fileID: 0}
   activeCheckpoint: {fileID: 0}

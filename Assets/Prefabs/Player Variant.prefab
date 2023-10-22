@@ -115,12 +115,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000189316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.92, y: 1.54, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.045312915, w: 0.9989729}
+  m_LocalPosition: {x: -0, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5770638937065471725}
+  m_Father: {fileID: 6244975196259728844}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2074474133
@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: a869171f7d0e7e440a245a2a8018fec6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: a869171f7d0e7e440a245a2a8018fec6, type: 3}
       propertyPath: m_LocalScale.x
@@ -343,7 +343,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7552582706839291426, guid: a869171f7d0e7e440a245a2a8018fec6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2074474134}
-    - targetCorrespondingSourceObject: {fileID: -7552582706839291426, guid: a869171f7d0e7e440a245a2a8018fec6, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1265547072936442623, guid: a869171f7d0e7e440a245a2a8018fec6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1000189317}
     m_AddedComponents:
@@ -709,6 +709,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb419c20728da0a4f817318fe192f909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velo: 0
+  isDoubleJumping: 0
+  isDashing: 0
+  Grounds: 0
+  anim_running: 0
+  isJumping: 0
+  falling: 0
   rb: {fileID: 1983628400}
   groundCheck: {fileID: 2074474134}
   groundLayer:
@@ -728,6 +735,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1983628402}
+  controller: {fileID: 0}
+  attacking: 0
   attackPoint: {fileID: 1000189317}
   enemyLayers:
     serializedVersion: 2
@@ -738,5 +747,10 @@ MonoBehaviour:
 --- !u!4 &5770638937065471725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: a869171f7d0e7e440a245a2a8018fec6, type: 3}
+  m_PrefabInstance: {fileID: 5132620888550065971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6244975196259728844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1265547072936442623, guid: a869171f7d0e7e440a245a2a8018fec6, type: 3}
   m_PrefabInstance: {fileID: 5132620888550065971}
   m_PrefabAsset: {fileID: 0}

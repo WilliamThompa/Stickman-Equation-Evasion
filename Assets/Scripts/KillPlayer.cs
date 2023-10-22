@@ -16,13 +16,13 @@ public class KillPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.name == "Player Variant")
         {
+            if (levelManager == null) levelManager = FindObjectOfType<LevelManager>();
             levelManager.RespawnPlayer();
             levelManager.TakeLife();
         }

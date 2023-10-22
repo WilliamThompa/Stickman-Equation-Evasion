@@ -19,6 +19,7 @@ public class GameOver : MonoBehaviour
 
     public void LevelSelect()
     {
+        if (gameoverscreen == null) gameoverscreen = GameObject.Find("GameOver");
         gameoverscreen.SetActive(false);
         Time.timeScale = 1;
         levelManager.LivesCounter = 3;

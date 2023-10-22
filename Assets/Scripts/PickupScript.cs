@@ -5,10 +5,14 @@ using UnityEngine;
 public class PickupScript : MonoBehaviour
 {
     public LevelManager levelManager;
+    private Camera cam;
+    private Animator camAnimator;
 
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        cam = Camera.main;
+        camAnimator = cam.GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,5 +25,15 @@ public class PickupScript : MonoBehaviour
             print(obj.name);
             Destroy(obj);
         }
+
+        if (collision.gameObject.tag == "CameraCheckpoint")
+        {
+            camAnimator.CrossFade("PanOut", 0, 0);
+        }
+        if (collision.gameObject.tag == "CameraExitCheckpoint")
+        {
+            camAnimator.CrossFade("PanIn", 0, 0);
+        }
+
     }
 }

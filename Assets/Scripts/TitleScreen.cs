@@ -9,6 +9,7 @@ public class TitleScreen : MonoBehaviour
     public string firstLevel;
     public string levelSelect;
     public string settings;
+    public LevelManager levelManager;
     
     public void NewGame()
     {
