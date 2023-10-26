@@ -11,6 +11,7 @@ public class PlayerAnimationController : MonoBehaviour
     public Animator animator;
     public Movement movement;
     public PlayerCombat playerCombat;
+    public LevelManager levelmanager;
 
     private int curState;
     private float _lockedUntil;

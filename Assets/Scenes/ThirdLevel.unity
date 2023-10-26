@@ -1197,6 +1197,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 684022389, guid: 14bf62656debe4e4a9bb3796824ef23e, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1346114687703723169, guid: 14bf62656debe4e4a9bb3796824ef23e, type: 3}
       propertyPath: m_Name
       value: Life Counter

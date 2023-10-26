@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Services.Mediation;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -48,6 +49,7 @@ public class LevelManager : MonoBehaviour
 
     public TMP_Text livesText;
     public GameObject gameOverScreen;
+    public Canvas gameover;
 
     [SerializeField]
     private Transform player;
@@ -81,6 +83,7 @@ public class LevelManager : MonoBehaviour
                 anim = GameObject.Find("Transition").GetComponent<Animator>();
             }
             catch(Exception e) { print(e); }
+
         }
         else
         {
@@ -90,6 +93,7 @@ public class LevelManager : MonoBehaviour
             try
             {
                 self.player = GameObject.Find("Player Variant").transform;
+                
             }
             catch
             {
@@ -105,20 +109,23 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         LivesCounter = defaultLives;
-        gameOverScreen = GameObject.Find("GameOver");
-        if (gameOverScreen != null) gameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (gameOverScreen == null) gameOverScreen = GameObject.Find("GameOver");
         if (activeCheckpoint == null) activeCheckpoint = GameObject.Find("Spawn");
-        //if (livesCounter > 0 && enabledLevel2)
-        //{
-        //    gameOverScreen.SetActive(false);
-        //}
+        if (livesCounter > 0 && gameOverScreen == null)
+        {
+            gameOverScreen = GameObject.Find("GameOver");
+            gameover = gameOverScreen.GetComponent<Canvas>();
+            gameover.enabled = false;
+        }
+        if (livesText == null) livesText = GameObject.Find("Life Count").GetComponent<TMP_Text>();
+        if (livesText.text == "")
+        {
+            UpdateLivesCounter();
+        }
     }
 
     public void RespawnPlayer()
@@ -135,8 +142,7 @@ public class LevelManager : MonoBehaviour
         LivesCounter--;
         if(LivesCounter <= 0)
         {
-            if (gameOverScreen == null) gameOverScreen = GameObject.Find("GameOver");
-            gameOverScreen.SetActive(true);
+            gameover.enabled = true;
             Time.timeScale = 0;
             Debug.LogWarning(Time.timeScale);
         }
@@ -144,7 +150,7 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLife()
     {
-        gameOverScreen.SetActive(false);
+        gameover.enabled = true;
         livesCounter = 3;
         Time.timeScale = 1;
      }
