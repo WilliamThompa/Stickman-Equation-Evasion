@@ -9,6 +9,7 @@ TagManager:
   - CameraCheckpoint
   - CameraExitCheckpoint
   - GameOverTag
+  - Teleporter
   layers:
   - Default
   - TransparentFX
