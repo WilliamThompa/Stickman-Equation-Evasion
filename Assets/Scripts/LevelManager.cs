@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private int livesCounter;
     public string levelSelect;
+    public UIManager uim;
 
     public Animator anim;
     public GameObject activeCheckpoint;
@@ -60,6 +61,8 @@ public class LevelManager : MonoBehaviour
     {
         if (!created)
         {
+            uim = GameObject.Find("UIManager").GetComponent<UIManager>();
+            uim.Load();
             DontDestroyOnLoad(gameObject);
             created = true;
             self = this;
@@ -81,6 +84,7 @@ public class LevelManager : MonoBehaviour
             try
             {
                 anim = GameObject.Find("Transition").GetComponent<Animator>();
+
             }
             catch(Exception e) { print(e); }
 
@@ -108,6 +112,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        uim = self.GetComponent<UIManager>();
         LivesCounter = defaultLives;
     }
 

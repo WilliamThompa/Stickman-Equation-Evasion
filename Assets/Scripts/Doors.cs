@@ -16,10 +16,13 @@ public class Doors : MonoBehaviour
     private LevelManager levelManager;
     [SerializeField] Animator anim;
 
+    public UIManager uim;
+
     // Start is called before the first frame update
     void Start()
     {
         inExitZone = false;
+        uim = GameObject.Find("UIManager").GetComponent<UIManager>();
         anim = GameObject.Find("SceneTransition").GetComponentInChildren<Animator>();
         if (isLevelSelectDoor)
         {
@@ -30,6 +33,7 @@ public class Doors : MonoBehaviour
                 //gameObject.SetActive(false);
                 GetComponent<BoxCollider2D>().enabled = false;
                 doorNumberRender.sprite = lockSprite;
+                
             }
             if (doorNumber == 3 && !levelManager.enabledLevel3)
             {
@@ -103,6 +107,8 @@ public class Doors : MonoBehaviour
     IEnumerator LoadLevel()
     {
         anim.SetTrigger("Finish");
+        //Save
+        uim.Save();
         yield return new WaitForSeconds(1);
         SceneManager.LoadSceneAsync(levelToLoad);
         anim.SetTrigger("Start");
