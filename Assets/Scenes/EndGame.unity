@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint
       objectReference: {fileID: 0}
+    - target: {fileID: 37816832346121060, guid: fd1d8038698a8a8458a0e29df322b52d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 37816832346121064, guid: fd1d8038698a8a8458a0e29df322b52d, type: 3}
       propertyPath: m_RootOrder
       value: 6
