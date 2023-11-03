@@ -5590,12 +5590,20 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1251972514621686085, guid: 34a562daf86d9e84282c6ffac918708b, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5769830419648713946, guid: 34a562daf86d9e84282c6ffac918708b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 905696923}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4673214580500778169, guid: 34a562daf86d9e84282c6ffac918708b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1653484028}
   m_SourcePrefab: {fileID: 100100000, guid: 34a562daf86d9e84282c6ffac918708b, type: 3}
+--- !u!4 &545434957 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5769830419648713946, guid: 34a562daf86d9e84282c6ffac918708b, type: 3}
+  m_PrefabInstance: {fileID: 545434956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &547555546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9317,6 +9325,72 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8706318345185605179, guid: c298b99e9a0cd7241a65f1ca48c5e26d, type: 3}
   m_PrefabInstance: {fileID: 196473562}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &905696922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 545434957}
+    m_Modifications:
+    - target: {fileID: 2172420474457600338, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_Name
+      value: Nar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+--- !u!4 &905696923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2172420474457600341, guid: 3ac22e7c508cab94a9c97a072fe7b198, type: 3}
+  m_PrefabInstance: {fileID: 905696922}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &908655712 stripped
 Transform:
