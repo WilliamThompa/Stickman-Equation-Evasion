@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
 
+
     private void Start()
     {
         anim = GetComponent<Animator>();

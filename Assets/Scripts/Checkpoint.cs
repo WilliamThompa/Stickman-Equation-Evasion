@@ -7,10 +7,13 @@ public class Checkpoint : MonoBehaviour
 
     public LevelManager levelManager;
 
+    private AudioSource checkpoint;
+
     // Start is called before the first frame update
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        checkpoint = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class Checkpoint : MonoBehaviour
         if(collision.name == "Player Variant")
         {
             levelManager.activeCheckpoint = gameObject;
+            checkpoint.Play();
         }
     }
 }

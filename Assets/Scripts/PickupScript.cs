@@ -8,11 +8,14 @@ public class PickupScript : MonoBehaviour
     private Camera cam;
     private Animator camAnimator;
 
+    private AudioSource health;
+
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
         cam = Camera.main;
         camAnimator = cam.GetComponent<Animator>();
+        health = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +27,7 @@ public class PickupScript : MonoBehaviour
             GameObject obj = GameObject.Find(collision.gameObject.name);
             print(obj.name);
             Destroy(obj);
+            health.Play();
         }
 
         if (collision.gameObject.tag == "CameraCheckpoint")
