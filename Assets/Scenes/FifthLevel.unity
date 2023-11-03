@@ -1012,6 +1012,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doors_Base (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6577292258919247865, guid: e06d0662373a9614399c3afb58147a34, type: 3}
+      propertyPath: doorNumber
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
