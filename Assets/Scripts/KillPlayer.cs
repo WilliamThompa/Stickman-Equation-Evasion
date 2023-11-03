@@ -28,7 +28,7 @@ public class KillPlayer : MonoBehaviour
             if (levelManager == null) levelManager = FindObjectOfType<LevelManager>();
             levelManager.RespawnPlayer();
             levelManager.TakeLife();
-            deathSound.Play();
+            deathSound.Play(0);
         }
     }
 }
