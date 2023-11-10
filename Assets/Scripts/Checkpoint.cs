@@ -26,7 +26,9 @@ public class Checkpoint : MonoBehaviour
     {
         if(collision.name == "Player Variant")
         {
+            if (levelManager == null) levelManager = FindObjectOfType<LevelManager>();
             levelManager.activeCheckpoint = gameObject;
+            if (checkpoint == null) checkpoint = GetComponent<AudioSource>();
             checkpoint.Play();
         }
     }

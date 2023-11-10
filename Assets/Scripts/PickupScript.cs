@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class PickupScript : MonoBehaviour
         cam = Camera.main;
         camAnimator = cam.GetComponent<Animator>();
         health = GetComponent<AudioSource>();
+        //print(gameObject.name);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
